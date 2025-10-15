@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+<link rel="stylesheet" href="/style.css">
+<h1>Minhas Disciplinas</h1>
+
+<ul>
+  <% disciplinas.forEach(d => { %>
+    <li>
+      <%= d.nome %>
+      <form action="/disciplinas/deletar/<%= d.id %>" method="POST" style="display:inline;">
+        <button type="submit">🗑️</button>
+      </form>
+      <form action="/disciplinas/editar/<%= d.id %>" method="POST" style="display:inline;">
+        <input type="text" name="nome" placeholder="Novo nome">
+        <button type="submit">✏️</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
+
+<form action="/disciplinas" method="POST">
+  <input type="text" name="nome" placeholder="Nova disciplina" required>
+  <button type="submit">Adicionar</button>
+</form>
+
+<a href="/">Voltar</a>

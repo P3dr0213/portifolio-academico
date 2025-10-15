@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+<link rel="stylesheet" href="/style.css">
+<h1>Meus Projetos</h1>
+
+<ul>
+  <% projetos.forEach(p => { %>
+    <li>
+      <strong><%= p.titulo %></strong> - <%= p.descricao %> 
+      <a href="<%= p.link %>" target="_blank">Ver</a>
+
+      <form action="/projetos/deletar/<%= p.id %>" method="POST" style="display:inline;">
+        <button type="submit">🗑️</button>
+      </form>
+
+      <form action="/projetos/editar/<%= p.id %>" method="POST">
+        <input type="text" name="titulo" placeholder="Novo título">
+        <input type="text" name="descricao" placeholder="Nova descrição">
+        <input type="text" name="link" placeholder="Novo link">
+        <button type="submit">✏️</button>
+      </form>
+    </li>
+  <% }) %>
+</ul>
+
+<form action="/projetos" method="POST">
+  <input type="text" name="titulo" placeholder="Título" required>
+  <input type="text" name="descricao" placeholder="Descrição" required>
+  <input type="text" name="link" placeholder="Link" required>
+  <button type="submit">Adicionar</button>
+</form>
+
+<a href="/">Voltar</a>

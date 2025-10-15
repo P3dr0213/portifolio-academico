@@ -1,0 +1,14 @@
+<%- include('partials/header') %>
+<link rel="stylesheet" href="/style.css">
+<h1>Dashboard</h1>
+<p>Total de Disciplinas: <%= totalDisciplinas %></p>
+<p>Total de Projetos: <%= totalProjetos %></p>
+
+<h3>Tecnologias Usadas:</h3>
+<ul>
+  <% tecnologias.forEach(t => { %>
+    <li><%= t %></li>
+  <% }) %>
+</ul>
+
+<a href="/">Voltar</a>
