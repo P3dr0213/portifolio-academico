@@ -52,7 +52,7 @@ app.post("/disciplinas", (req, res) => {
   res.redirect("/disciplinas");
 });
 
-app.post("/disciplinas/editar/:id", (req, res) => {
+app.put("/disciplinas/editar/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const { nome } = req.body;
   disciplinas = disciplinas.map((d) =>
@@ -61,7 +61,7 @@ app.post("/disciplinas/editar/:id", (req, res) => {
   res.redirect("/disciplinas");
 });
 
-app.post("/disciplinas/deletar/:id", (req, res) => {
+app.delete("/disciplinas/deletar/:id", (req, res) => {
   const id = parseInt(req.params.id);
   disciplinas = disciplinas.filter((d) => d.id !== id);
   res.redirect("/disciplinas");
@@ -76,7 +76,7 @@ app.post("/projetos", (req, res) => {
   res.redirect("/projetos");
 });
 
-app.post("/projetos/editar/:id", (req, res) => {
+app.put("/projetos/editar/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const { titulo, descricao, link } = req.body;
   projetos = projetos.map((p) =>
@@ -85,7 +85,7 @@ app.post("/projetos/editar/:id", (req, res) => {
   res.redirect("/projetos");
 });
 
-app.post("/projetos/deletar/:id", (req, res) => {
+app.delete("/projetos/deletar/:id", (req, res) => {
   const id = parseInt(req.params.id);
   projetos = projetos.filter((p) => p.id !== id);
   res.redirect("/projetos");
